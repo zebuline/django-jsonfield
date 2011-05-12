@@ -39,7 +39,7 @@ class JSONField(models.TextField):
         if isinstance(value, (dict, list)):
             value = json.dumps(value, cls=DjangoJSONEncoder)
 
-        return super(JSONField, self).get_db_prep_save(value, connection)
+        return super(JSONField, self).get_db_prep_save(value, connection=connection)
 
 
 class PickledObject(str):
